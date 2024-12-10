@@ -1,26 +1,19 @@
 def multiplicate(matrix1, matrix2):
-    if len(matrix2) > len(matrix2):
-        m1 = matrix2
-        m2 = matrix1
-    else:
-        m1 = matrix1
-        m2 = matrix2
-    count = 0
-    #       1 2 3
-    #       4 5 6
-    # 7 8
-    # 9 10
-    m1_columns = list()
-    for i in range(len(m1[0])):
-        col = list()
-        for line in m1:
-            col.append(line[count])
-        count += 1
-        m1_columns.append(f"{col[0]} {col[1]}")
-    for i in range(len(m1)):
-        m1_columns.remove("   ")
-    print(m1_columns)
+    matrix1_sorted = list()
+    matrix2_sorted = list()
+    for line in matrix1:
+        matrix1_sorted.append([int(num) for num in line.split()])
+    for line in matrix2:
+        matrix2_sorted.append([int(num) for num in line.split()])
 
     result = list()
-        
+    for i in range(len(matrix1_sorted)):
+        result.append([0 for i in range(len(matrix2_sorted[0]))])
 
+    for i in range(len(matrix1_sorted)):
+        for n in range(len(matrix2_sorted[0])):
+            for g in range(len(matrix2_sorted)):
+                result[i][n] += int(matrix1_sorted[i][g]) * int(matrix2_sorted[g][n])
+    
+    for matrix_line in result:
+        print(*matrix_line)
