@@ -15,12 +15,23 @@ def collect_matrix():
             print("warning: the string is not saved. the number of elements is not equal.")
     return matrix
 
-def check_matrices(matrix1, matrix2):
-    if len([n for n in matrix1[0].split() if n.isnumeric()]) == len(matrix2):
+def check_matrices(matrix1, matrix2, mode):
+    if mode == 1:
+        if len([n for n in matrix1[0].split() if n.isnumeric()]) == len(matrix2):
+            return True
+        else:
+            return False
+    elif mode == 2:
         return True
-    else:
-        return False
-
-def output_matrices(matrix1, matrix2):
-    print("first:", *matrix1, sep="\n", end="\n")
-    print("second:", *matrix2, sep="\n", end="\n") 
+    
+def output_matrices(matrix1, matrix2, mode):
+    if mode == 1:
+        print("first:", *matrix1, sep="\n", end="\n")
+        print("second:", *matrix2, sep="\n", end="\n") 
+    elif mode == 2:
+        print("first:")
+        for line in matrix1:
+            print(*line)
+        print("second:") 
+        for line in matrix2:
+            print(*line)
