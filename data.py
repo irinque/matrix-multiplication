@@ -1,5 +1,3 @@
-from sys import stdin
-
 def collect_matrices():
     file = open("matrices.txt", mode="r").read().split("\n")
     m1 = ""
@@ -14,17 +12,16 @@ def collect_matrices():
     matrix1, matrix2 = eval(m1), eval(m2)
     return matrix1, matrix2
 
-
 def check_matrices(matrix1, matrix2):
     if len([n for n in matrix1[0]]) == len(matrix2):
         return True
     else:
         return False
     
-def output_matrices(matrix1, matrix2):
-    print("first:")
+def output_matrices(matrix1, matrix2, A, B, C):
+    print(f"first: {A}x{B}")
     for line in matrix1:
         print(*line)
-    print("second:") 
+    print(f"second: {B}x{C}") 
     for line in matrix2:
         print(*line)

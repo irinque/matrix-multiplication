@@ -5,23 +5,21 @@ from multiplication import multiplicate
 from generation import generate_matrix
 
 
-#question = int(input("select a mode:\n1 - your matrices\n2 - generate random matrices\n3 - generate random matrices\n! enter only a number !\n"))
 parser = argparse.ArgumentParser(description="select a mode:")
 parser.add_argument("mode", type=int, help="1 - your matrices from file\n2 - generate random matrices")
 args = parser.parse_args()
 
+print("--- MATRICES ---")
 if args.mode == 1:
     matrix1, matrix2 = collect_matrices()
-
+    output_matrices(matrix1=matrix1, matrix2=matrix2)
 elif args.mode == 2:
-    A = random.randint(1, 7)
-    B = random.randint(1, 7)
-    C = random.randint(1, 7)
+    A = random.randint(1, 12)
+    B = random.randint(1, 12)
+    C = random.randint(1, 12)
     matrix1 = generate_matrix(width=B, height=A)
     matrix2 = generate_matrix(width=C, height=B)
-
-print("--- MATRICES ---")
-output_matrices(matrix1=matrix1, matrix2=matrix2)
+    output_matrices(matrix1=matrix1, matrix2=matrix2, A=A, B=B, C=C)
 
 print("--- VALIDATE ---")
 if check_matrices(matrix1=matrix1, matrix2=matrix2):
