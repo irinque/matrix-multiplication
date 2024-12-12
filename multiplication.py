@@ -1,17 +1,11 @@
-def multiplicate(matrix1, matrix2, mode):
+def multiplicate(matrix1, matrix2):
     matrix1_sorted = list()
     matrix2_sorted = list()
 
-    if mode == 1:
-        for line in matrix1:
-            matrix1_sorted.append([int(num) for num in line.split()])
-        for line in matrix2:
-            matrix2_sorted.append([int(num) for num in line.split()])
-    elif mode == 2:
-        for i in matrix1:
-            matrix1_sorted.append(i)
-        for i in matrix2:
-            matrix2_sorted.append(i)
+    for line in matrix1:
+        matrix1_sorted.append(line)
+    for line in matrix2:
+        matrix2_sorted.append(line)
 
     result = list()
     for i in range(len(matrix1_sorted)):
