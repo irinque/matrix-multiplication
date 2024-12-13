@@ -1,26 +1,31 @@
-from sys import stdin
+import os
 
-def collect_matrix():
-    matrix = list()
-    previous_line = ""
-    for line in stdin:
-        if previous_line == "":
-            previous_line = line
-        if len(previous_line.split()) == len(line.split()):
-            matrix.append(line.rstrip("\n"))
-            previous_line = line
-        elif line == "\n":
-            break
-        else:
-            print("warning: the string is not saved. the number of elements is not equal.")
-    return matrix
+def collect_matrices():
+    if os.path.exists("matrices.txt"):
+        file = open("matrices.txt", mode="r").read().split("\n")
+        m1 = ""
+        m2 = ""
+        c = 0
+        for line in file:
+            if line != "" and c == 0:
+                m1 += line 
+            else:
+                c += 1
+                m2 += line
+        matrix1, matrix2 =  [[float(num) for num in lst] for lst in eval(m1)], [[float(num) for num in lst] for lst in eval(m2)]
+        dimension_a = len(matrix1)
+        dimension_b = len(matrix2)
+        dimension_c = len(matrix2[0])
+        return matrix1, matrix2, dimension_a, dimension_b, dimension_c
+    else:
+        raise FileNotFoundError("matrices.txt file is missing")
 
-def check_matrices(matrix1, matrix2):
-    if len([n for n in matrix1[0].split() if n.isnumeric()]) == len(matrix2):
+def validate_dimensions(matrix1, matrix2):
+    if len([n for n in matrix1[0]]) == len(matrix2):
         return True
     else:
         return False
-
-def output_matrices(matrix1, matrix2):
-    print("first:", *matrix1, sep="\n", end="\n")
-    print("second:", *matrix2, sep="\n", end="\n") 
+    
+def output_matrices(matrix):
+    for line in matrix:
+        print(*line)
