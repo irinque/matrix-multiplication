@@ -12,14 +12,20 @@ args = parser.parse_args()
 print("--- MATRICES ---")
 if args.mode == 1:
     matrix1, matrix2, dimension_a, dimension_b, dimension_c = collect_matrices()
-    output_matrices(matrix1=matrix1, matrix2=matrix2, dimension_a=dimension_a, dimension_b=dimension_b, dimension_c=dimension_c)
+    print(f"first: {dimension_a}x{dimension_b}")
+    output_matrices(matrix=matrix1)
+    print(f"second: {dimension_b}x{dimension_c}") 
+    output_matrices(matrix=matrix2)
 elif args.mode == 2:
     dimension_a = random.randint(1, 12)
     dimension_b = random.randint(1, 12)
     dimension_c = random.randint(1, 12)
     matrix1 = generate_matrix(width=dimension_b, height=dimension_a)
     matrix2 = generate_matrix(width=dimension_c, height=dimension_b)
-    output_matrices(matrix1=matrix1, matrix2=matrix2, dimension_a=dimension_a, dimension_b=dimension_b, dimension_c=dimension_c)
+    print(f"first: {dimension_a}x{dimension_b}")
+    output_matrices(matrix=matrix1)
+    print(f"second: {dimension_b}x{dimension_c}") 
+    output_matrices(matrix=matrix2)
 
 print("--- VALIDATE ---")
 if validate_dimensions(matrix1=matrix1, matrix2=matrix2):

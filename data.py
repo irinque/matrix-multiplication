@@ -26,10 +26,6 @@ def validate_dimensions(matrix1, matrix2):
     else:
         return False
     
-def output_matrices(matrix1, matrix2, dimension_a, dimension_b, dimension_c):
-    print(f"first: {dimension_a}x{dimension_b}")
-    for line in matrix1:
-        print(*line)
-    print(f"second: {dimension_b}x{dimension_c}") 
-    for line in matrix2:
+def output_matrices(matrix):
+    for line in matrix:
         print(*line)
