@@ -12,24 +12,24 @@ def collect_matrices():
             else:
                 c += 1
                 m2 += line
-        matrix1, matrix2 = eval(m1), eval(m2)
-        row = len(matrix1)
-        column = len(matrix2)
-        row_2 = len(matrix2[0])
-        return matrix1, matrix2, row, column, row_2
+        matrix1, matrix2 =  [[float(num) for num in lst] for lst in eval(m1)], [[float(num) for num in lst] for lst in eval(m2)]
+        dimension_a = len(matrix1)
+        dimension_b = len(matrix2)
+        dimension_c = len(matrix2[0])
+        return matrix1, matrix2, dimension_a, dimension_b, dimension_c
     else:
         raise FileNotFoundError("matrices.txt file is missing")
 
-def check_matrices(matrix1, matrix2):
+def validate_dimensions(matrix1, matrix2):
     if len([n for n in matrix1[0]]) == len(matrix2):
         return True
     else:
         return False
     
-def output_matrices(matrix1, matrix2, A, B, C):
-    print(f"first: {A}x{B}")
+def output_matrices(matrix1, matrix2, dimension_a, dimension_b, dimension_c):
+    print(f"first: {dimension_a}x{dimension_b}")
     for line in matrix1:
         print(*line)
-    print(f"second: {B}x{C}") 
+    print(f"second: {dimension_b}x{dimension_c}") 
     for line in matrix2:
         print(*line)
