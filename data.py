@@ -18,7 +18,7 @@ def collect_matrices():
         row_2 = len(matrix2[0])
         return matrix1, matrix2, row, column, row_2
     else:
-        raise TypeError("matrix.txt file is missing")
+        raise FileNotFoundError("matrices.txt file is missing")
 
 def check_matrices(matrix1, matrix2):
     if len([n for n in matrix1[0]]) == len(matrix2):
