@@ -11,15 +11,15 @@ args = parser.parse_args()
 
 print("--- MATRICES ---")
 if args.mode == 1:
-    matrix1, matrix2, A, B, C = collect_matrices()
-    output_matrices(matrix1=matrix1, matrix2=matrix2, A=A, B=B, C=C)
+    matrix1, matrix2, row, column, row_2 = collect_matrices()
+    output_matrices(matrix1=matrix1, matrix2=matrix2, A=row, B=column, C=row_2)
 elif args.mode == 2:
-    A = random.randint(1, 12)
-    B = random.randint(1, 12)
-    C = random.randint(1, 12)
-    matrix1 = generate_matrix(width=B, height=A)
-    matrix2 = generate_matrix(width=C, height=B)
-    output_matrices(matrix1=matrix1, matrix2=matrix2, A=A, B=B, C=C)
+    row = random.randint(1, 12)
+    column = random.randint(1, 12)
+    row_2 = random.randint(1, 12)
+    matrix1 = generate_matrix(width=column, height=row)
+    matrix2 = generate_matrix(width=row_2, height=column)
+    output_matrices(matrix1=matrix1, matrix2=matrix2, A=row, B=column, C=row_2)
 
 print("--- VALIDATE ---")
 if check_matrices(matrix1=matrix1, matrix2=matrix2):

@@ -13,13 +13,12 @@ def collect_matrices():
                 c += 1
                 m2 += line
         matrix1, matrix2 = eval(m1), eval(m2)
-        A = len(matrix1)
-        B = len(matrix2)
-        C = len(matrix2[0])
-        return matrix1, matrix2, A, B, C
+        row = len(matrix1)
+        column = len(matrix2)
+        row_2 = len(matrix2[0])
+        return matrix1, matrix2, row, column, row_2
     else:
-        print("! matrices.txt file is missing !")
-        exit()
+        raise TypeError("matrix.txt file is missing")
 
 def check_matrices(matrix1, matrix2):
     if len([n for n in matrix1[0]]) == len(matrix2):
