@@ -11,8 +11,8 @@ args = parser.parse_args()
 
 print("--- MATRICES ---")
 if args.mode == 1:
-    matrix1, matrix2 = collect_matrices()
-    output_matrices(matrix1=matrix1, matrix2=matrix2)
+    matrix1, matrix2, A, B, C = collect_matrices()
+    output_matrices(matrix1=matrix1, matrix2=matrix2, A=A, B=B, C=C)
 elif args.mode == 2:
     A = random.randint(1, 12)
     B = random.randint(1, 12)
