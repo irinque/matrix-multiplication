@@ -1,4 +1,7 @@
+import time 
+
 def multiplicate(matrix1, matrix2):
+    start = time.time()
     matrix1_sorted = list()
     matrix2_sorted = list()
 
@@ -16,4 +19,6 @@ def multiplicate(matrix1, matrix2):
             for g in range(len(matrix2_sorted)):
                 result[i][n] += matrix1_sorted[i][g] * matrix2_sorted[g][n]
 
-    return result
+    finish = time.time()
+    runtime = finish - start
+    return result, runtime
