@@ -4,7 +4,6 @@ import time
 from data import collect_matrices, output_matrices, validate_dimensions, output_result
 from multiplication import multiplicate
 from generation import generate_matrix
-from performance import runtime
 
 
 parser = argparse.ArgumentParser(description="select a mode:")
@@ -37,7 +36,7 @@ if validate_dimensions(matrix1=matrix1, matrix2=matrix2):
     start = time.time()
     result = multiplicate(matrix1=matrix1, matrix2=matrix2)
     finish = time.time()
-    print(f"multiplication completed in {runtime(start, finish)} seconds")
+    print(f"multiplication completed in {round(finish - start, 3)} seconds")
     print(f"- multiplication result in the result.txt file\n- source matrices in matrices.txt")
     output_result(result)
 else:
