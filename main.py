@@ -8,6 +8,7 @@ from generation import generate_matrix
 
 parser = argparse.ArgumentParser(description="select a mode:")
 parser.add_argument("-m", '--mode', type=int, help="1 - your matrices\n2 - random matrices\n3 - performance test", default=1)
+parser.add_argument("-p", '--perf', type=int, help="dimensions of generated matrices", default=500)
 args = parser.parse_args()
 
 print("--- MATRICES ---")
@@ -24,7 +25,7 @@ elif args.mode == 2:
     output_matrices(matrix1, matrix2)
 
 elif args.mode == 3:
-    dimension = 1000
+    dimension = args.perf
     matrix1 = generate_matrix(width=dimension, height=dimension)
     matrix2 = generate_matrix(width=dimension, height=dimension)
     print(f"first: {dimension}x{dimension}")
