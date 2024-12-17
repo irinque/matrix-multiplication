@@ -12,6 +12,7 @@ def collect_matrices():
             else:
                 c += 1
                 m2 += line
+        print(m1)
         matrix1, matrix2 =  [[float(num) for num in lst] for lst in eval(m1)], [[float(num) for num in lst] for lst in eval(m2)]
         dimension_a = len(matrix1)
         dimension_b = len(matrix2)
@@ -26,6 +27,17 @@ def validate_dimensions(matrix1, matrix2):
     else:
         return False
     
-def output_matrices(matrix):
+def output_matrices(matrix1, matrix2):
+    file = open("matrices.txt", "w")
+    for line in matrix1:
+        file.write(f"{line},\n")
+    file.write("\n")
+    for line in matrix2:
+        file.write(f"{line},\n")
+    file.close()
+
+def output_result(matrix):
+    file = open("result.txt", "w")
     for line in matrix:
-        print(*line)
+        file.write(f"{line},\n")
+    file.close()
